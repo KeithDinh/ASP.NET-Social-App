@@ -25,7 +25,6 @@ namespace API
     public class Startup
     {
         private readonly IConfiguration _config;
-        
         public Startup(IConfiguration config)
         {
             _config = config;
@@ -42,6 +41,7 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+            services.AddCors();
             services.AddIdentityServices(_config);
         }
 
