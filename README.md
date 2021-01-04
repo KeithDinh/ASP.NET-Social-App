@@ -1,14 +1,40 @@
 # DOCUMENTATIONS
 
+### SOMETHINGS TO KEEP IN MIND
+
+* Entities: Model
+* Reset the server when adding new controllers
+* DTO: Data transfer object
+* If sending data in body, need to create a class acting as a model to parse it
+
+* return Ok(); // Http status code 200
+* return Created(); // Http status code 201
+* return NoContent(); // Http status code 204
+* return BadRequest(); // Http status code 400
+* return Unauthorized(); // Http status code 401
+* return Forbid(); // Http status code 403
+* return NotFound(); // Http status code 404
+
 ### GENERAL DEFINITIONS
 
-Naming convention: class members start with "_", Ex: _config
+Naming convention: 
+* class members start with "_", Ex: _config
+* interface name starts with "I" as prefix, Ex: ITokenService.cs 
 
 Entity Framework: Object Relational Mapper, translate code -> SQL that update db tables
 * Automate process "open connections->create dataset to fetch/submit data->convert dataset to .Net object"
 * Like mongoose for Mongo, add another layer on top of queries
 
+DBContext class: act as a bridge between our code and db
+
 Migrations: the concept covers: create db without writing SQL, modify db after changed backend models, revert changes
+
+IEnumerable: use simple iteration over a collection of a specified type
+
+An ActionResult is a return type of a controller method, also called an action method, and serves as the base class for *Result classes
+
+Dependencies Injection:
+* create objects, know which classes required those objects, provide them all those objects
 
 ### EXTENSIONS (API.csproj) 
 
@@ -20,8 +46,6 @@ dotnet-ef: can't install using Nuget Gallery, have to use cmd line:
 * ```dotnet tool install --global dotnet-ef --version 5.0.1```
 * Requirements: Microsoft.EntityFrameworkCore.Design from Nuget Gallery
     
-IEnumerable: use simple iteration over a collection of a specified type
-
 ### DATABASE 
 
 File: appsettings.Development.json
@@ -45,7 +69,10 @@ dotnet dev-certs https --trust: tell browser to trust the certificates provided 
 
 dotnet ef migrations add <NAME> --output-dir <PATH>, Ex: dotnet ef migrations add InitialCreate -o Data/Migrations
 
-dotnet ef database update
+dotnet ef database update: create/update current db from last migration
+
+dotnet ef database drop: drop current db
+
 
 ### CONFIGS 
 
