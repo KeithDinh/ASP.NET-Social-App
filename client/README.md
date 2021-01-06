@@ -2,10 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-### Development server
+### Install and create template
 npm install -g @angular/cli
 ng new [Name of project]
 
+### Generate files
+help: ng g -h
+
+Ex: ng g c [name]
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
