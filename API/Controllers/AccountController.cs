@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.DTOs;
 using Microsoft.EntityFrameworkCore;
 using API.Interfaces;
+using System;
 
 namespace API.Controllers
 {
@@ -65,7 +66,7 @@ namespace API.Controllers
         }
         private async Task<bool> UserExists(string username)
         {
-            return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
+            return await _context.Users.AnyAsync(x =>  x.UserName.ToLower() == username.ToLower());
         }
     }
 }

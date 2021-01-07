@@ -1,4 +1,4 @@
-## API
+s## API
 
 ### SOMETHINGS TO KEEP IN MIND
 
@@ -35,6 +35,10 @@ An ActionResult is a return type of a controller method, also called an action m
 
 Dependencies Injection:
 * create objects, know which classes required those objects, provide them all those objects
+
+Ilogger: useful info to show in terminal
+
+IHostEnvironment: check what environment 
 
 ### EXTENSIONS (API.csproj) 
 
