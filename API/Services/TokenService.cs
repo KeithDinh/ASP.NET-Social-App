@@ -32,13 +32,11 @@ namespace API.Services
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials= creds
             };
+            
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var tokenHanlder = new JwtSecurityTokenHandler();
-
-            var token = tokenHanlder.CreateToken(tokenDescriptor);
-
-            return tokenHanlder.WriteToken(token);
-
+            return tokenHandler.WriteToken(token);
         }
     }
 }

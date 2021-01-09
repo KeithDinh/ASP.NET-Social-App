@@ -8,6 +8,7 @@ namespace API.Extensions
 {
     public static class IdentityServiceExtensions
     {
+        // when the route is set [Authorize], this middleware will be provoked
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
