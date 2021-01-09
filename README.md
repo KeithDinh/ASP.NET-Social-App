@@ -32,6 +32,10 @@ Ilogger: display useful info to terminal
 
 IHostEnvironment: check what environment 
 
+The concept of Repository is to add a abstract layer on top of EF (factor similar codes). This injects the repository interface and prevents using DataContext directly
+
+Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query
+
 ### EXTENSIONS (API.csproj) 
 
 Nuget VSCode extension: to find and install packages (for Visual Studio, it's already built-in)
@@ -42,6 +46,8 @@ dotnet-ef: can't install using Nuget Gallery, have to use cmd line:
 * ```dotnet tool install --global dotnet-ef --version 5.0.1```
 * Requirements: Microsoft.EntityFrameworkCore.Design from Nuget Gallery
     
+AutoMapper.Extensions.Microsoft.DependencyInjection
+
 ### DATA CONTEXT
 
 DBContext class: act as a bridge between our code and db, It use the entities to map/create tables in database and return DBSets for backend to use
@@ -105,5 +111,5 @@ public methods: we need the Entity Framework to both get/set itself
 
 ### EXTERNAL TOOLS
 
-json-generator.com
-randomuser.me/
+json-generator.com: generate users' information
+randomuser.me: generate users' profile pictures

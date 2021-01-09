@@ -12,6 +12,7 @@ namespace API.Data
     {
         public static async Task SeedUsers(DataContext context)
         {
+            // context.Users is a DbSet
             if(await context.Users.AnyAsync()) return;
 
             var userData = await System.IO.File.ReadAllBytesAsync("Data/UserSeedData.json");
