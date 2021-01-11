@@ -7,6 +7,7 @@
 * DTO: Data transfer object
 * If sending data in body, need to create a class acting as a model to parse it
 * The Extension folder contains static classes that extends a specific class by adding static functions
+
 ### GENERAL DEFINITIONS
 
 Naming convention: 
@@ -46,7 +47,7 @@ dotnet-ef: can't install using Nuget Gallery, have to use cmd line:
 * ```dotnet tool install --global dotnet-ef --version 5.0.1```
 * Requirements: Microsoft.EntityFrameworkCore.Design from Nuget Gallery
     
-AutoMapper.Extensions.Microsoft.DependencyInjection
+AutoMapper.Extensions.Microsoft.DependencyInjection: help to map from one object to another
 
 ### DATA CONTEXT
 
@@ -84,7 +85,6 @@ dotnet ef migrations remove: remove the last migration
 
 dotnet ef database drop: drop current db
 
-
 ### CONFIGS 
 
 File: appsettings.Development.json
@@ -108,8 +108,10 @@ public methods: we need the Entity Framework to both get/set itself
 * return Forbid(); // Http status code 403
 * return NotFound(); // Http status code 404
 
-
 ### EXTERNAL TOOLS
 
 json-generator.com: generate users' information
 randomuser.me: generate users' profile pictures
+Jsontots.com: convert json object to typescript model
+ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
+NgxGallery: npmjs.com/package/@kolkov/ngx-gallery

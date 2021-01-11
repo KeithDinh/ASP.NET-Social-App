@@ -14,11 +14,14 @@ namespace API
 {
     public class Program
     {
+        // Default Main
         // public static void Main(string[] args)
         // {
             
         //     CreateHostBuilder(args).Build().Run();
         // }
+
+        // Main to read dummy data
         public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
