@@ -37,6 +37,8 @@ The concept of Repository is to add a abstract layer on top of EF (factor simila
 
 Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query
 
+appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.
+
 ### EXTENSIONS (API.csproj) 
 
 Nuget VSCode extension: to find and install packages (for Visual Studio, it's already built-in)
@@ -73,6 +75,9 @@ dotnet new webapi -o [name]: create a new API project, -o mean put them in a sep
 dotnet sln add API: add the pj to the solution
 
 dotnet dev-certs https --trust: tell browser to trust the certificates provided by dotnet sdk
+#### Debugs (VSCode)
+
+Mac: API.dll |||| Windows: API.exe
 
 #### Migrations
 
@@ -98,20 +103,23 @@ public methods: we need the Entity Framework to both get/set itself
 
 "UserName": to separate from "Username" of ASP.NET CORE Identity
 
-### EXTRAS
+### HTTP STATUS CODE
 
-* return Ok(); // Http status code 200
-* return Created(); // Http status code 201
-* return NoContent(); // Http status code 204
-* return BadRequest(); // Http status code 400
-* return Unauthorized(); // Http status code 401
-* return Forbid(); // Http status code 403
-* return NotFound(); // Http status code 404
+* Ok(); 200
+* Created(); 201
+* NoContent(); 204
+* BadRequest(); 400
+* Unauthorized(); 401
+* Forbid(); 403
+* NotFound(); 404
 
 ### EXTERNAL TOOLS
 
-json-generator.com: generate users' information
-randomuser.me: generate users' profile pictures
-Jsontots.com: convert json object to typescript model
-ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
-NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
+* json-generator.com: generate users' information
+* randomuser.me: generate users' profile pictures
+* Jsontots.com: convert json object to typescript model
+* Cloudinary: mananging photos
+
+* ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
+* NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
+* ng2-file-upload: 

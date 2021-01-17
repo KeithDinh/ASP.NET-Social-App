@@ -1,7 +1,7 @@
 ## Client
 
 ### General Definitions
-c
+
 
 ### Install and create template
 npm install -g @angular/cli
@@ -44,3 +44,6 @@ app-routing.module.ts: const routes: Routes = [ { path: '', component: NameOfCom
 app.component.html: add <router-outlet></router-outlet>
 
 Update href in components to routerLink
+
+npm install @angular/cdk
+ng add ngx-spinner

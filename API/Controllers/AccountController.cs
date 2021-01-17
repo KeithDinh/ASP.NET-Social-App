@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Net;
@@ -61,7 +62,8 @@ namespace API.Controllers
 
             return new UserDto{
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
             };
         }
         private async Task<bool> UserExists(string username)
