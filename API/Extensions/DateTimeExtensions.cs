@@ -3,6 +3,7 @@ namespace API.Extensions
 {
     public static class DateTimeExtensions
     {
+        // add an extra function to DateTime type to calculate Age
         public static int CalculateAge(this DateTime dob)
         {
             var today = DateTime.Today;
