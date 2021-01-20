@@ -6,8 +6,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
-// this module is to bundle/group up external modules into one and export them all in shared module for clean code
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+// This module bundles/groups up bootstrap components into one and export all as a single shared module for clean code
+// bootstrap components require .forRoot()
 @NgModule({
   declarations: [],
   imports: [
@@ -20,6 +21,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NgxGalleryModule,
     FileUploadModule,
     BsDatepickerModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   // make it global
   exports: [
@@ -29,6 +31,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NgxGalleryModule,
     FileUploadModule,
     BsDatepickerModule,
+    PaginationModule,
   ],
 })
 export class SharedModule {}

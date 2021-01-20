@@ -35,6 +35,8 @@ IHostEnvironment: check what environment
 
 The concept of Repository is to add a abstract layer on top of EF (factor similar codes). This injects the repository interface and prevents using DataContext directly
 
+Circular Reference: the relationship between two entities cause EF to query circularly
+
 Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query
 
 appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using API.Extensions;
 using API.Entities;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -26,15 +27,21 @@ namespace API.Controllers
             _userRepository = userRepository;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUserName());
+            userParams.CurrentUsername = User.GetUserName();
+            
+            if(string.IsNullOrEmpty(userParams.Gender))
+                userParams.Gender = user.Gender == "male"?"female":"male";
 
-            var users = await _userRepository.GetUsersAsync();
+            var users = await _userRepository.GetMembersAsync(userParams);
 
-            var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize,
+                 users.TotalCount, users.TotalPages);
 
             // Idk why but GetUsersAsync returns a collection not ActionResult, so wrap it in Ok() to convert it to ActionResult
-            return Ok(usersToReturn);
+            return Ok(users);
         }
         // api/users/3 |||| Route Name is a shorthand way to reference the route
         [HttpGet("{username}", Name = "GetUser")]
