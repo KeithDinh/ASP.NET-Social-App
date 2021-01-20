@@ -9,20 +9,20 @@
 
       <div class="card-body">
         <div>
-          <string>Location:</string>
+          <strong>Location:</strong>
           <p>{{ member.city }}, {{ member.city }}</p>
         </div>
         <div>
-          <string>Age:</string>
+          <strong>Age:</strong>
           <p>{{ member.age }}</p>
         </div>
         <div>
-          <string>Location:</string>
-          <p>{{ member.lastActive }}</p>
+          <strong>Last Active:</strong>
+          <p>{{ member.lastActive | timeago }}</p>
         </div>
         <div>
-          <string>Location:</string>
-          <p>{{ member.created }}</p>
+          <strong>Member Since:</strong>
+          <p>{{ member.created | date: "dd MMM yyyy" }}</p>
         </div>
       </div>
       <div class="card-footer">

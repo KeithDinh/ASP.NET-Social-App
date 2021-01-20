@@ -47,3 +47,4 @@ Update href in components to routerLink
 
 npm install @angular/cdk
 ng add ngx-spinner
+npm install ngx-timeago

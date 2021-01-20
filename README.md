@@ -125,3 +125,7 @@ public methods: we need the Entity Framework to both get/set itself
 * ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
 * NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
 * ng2-file-upload: 
+
+### POSIBLE BUGS
+
+* When using ngModel, need to have property 'name'

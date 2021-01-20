@@ -52,6 +52,7 @@ namespace API.Data
                 "created" => query.OrderByDescending(u => u.Created), // case "created"
                 _ => query.OrderByDescending(u => u.LastActive) // case default
             };
+            
             return await PagedList<MemberDto>.CreateAsync(
                 query
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
