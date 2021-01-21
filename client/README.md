@@ -1,7 +1,7 @@
 ## Client
 
 ### General Definitions
-
+Partial<Member[]> each element will be optional
 
 ### Install and create template
 npm install -g @angular/cli

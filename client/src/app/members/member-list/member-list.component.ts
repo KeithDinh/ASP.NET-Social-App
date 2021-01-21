@@ -51,14 +51,4 @@ export class MemberListComponent implements OnInit {
     this.memberService.setUserParams(this.userParams);
     this.loadMembers();
   }
-  // loadMembers() {
-  //   this.memberService.getMembers().subscribe(
-  //     (members) => {
-  //       this.members = members;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
 }
