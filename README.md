@@ -1,13 +1,13 @@
-## API
+# API
 
-### Notes
+## Notes
 
 * Entities: Model
 * Reset the server when adding new controllers
 * If sending data in body as JSON, need to create a class (a model) to parse it (match properties of JSON to the class properties)
 * The Extension folder contains static classes that extends a specific class by adding static functions
 
-### General Concepts
+## General Concepts
 
 Naming convention: 
 * class members start with "_", Ex: _config
@@ -42,7 +42,7 @@ Eager loading is the process whereby a query for one type of entity also loads r
 
 appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.
 
-### Extensions (API.csproj) 
+## Extensions (API.csproj) 
 
 Nuget VSCode extension: to find and install packages (for Visual Studio, it's already built-in)
 
@@ -54,18 +54,18 @@ dotnet-ef: can't install using Nuget Gallery, have to use cmd line:
     
 AutoMapper.Extensions.Microsoft.DependencyInjection: help to map from one object to another
 
-### Data Context
+## Data Context
 
 DBContext class: act as a bridge between our code and db, It use the entities to map/create tables in database and return DBSets for backend to use
 
 If an entity need to have a db table but there is no API use of that entity (users can store photo, so there is a need to get photos of a specific user, but no need to get photo without user itself)
 
-### Database 
+## Database 
 
 File: appsettings.Development.json
 * ```"ConnectionStrings": {"Default": "Data source=datingapp.db"}``` 
 
-### Commands 
+## Commands 
 
 dotnet run: run the app
 
@@ -78,11 +78,11 @@ dotnet new webapi -o [name]: create a new API project, -o mean put them in a sep
 dotnet sln add API: add the pj to the solution
 
 dotnet dev-certs https --trust: tell browser to trust the certificates provided by dotnet sdk
-#### Debugs (VSCode)
+### Debugs (VSCode)
 
 Mac: API.dll |||| Windows: API.exe
 
-#### Migrations
+### Migrations
 
 dotnet ef migrations add <NAME> --output-dir <PATH>, 
 Ex: dotnet ef migrations add InitialCreate -o Data/Migrations
@@ -93,14 +93,14 @@ dotnet ef migrations remove: remove the last migration
 
 dotnet ef database drop: drop current db
 
-### Configs 
+## Configs 
 
 In dev mode, prod mode will be false and app will use both appsettings and appsettings development by default
 
 File: appsettings.Development.json
 * "Microsoft": "Information" gives useful details on accessing the route
 
-### Models/Entities
+## Models/Entities
 
 public methods: we need the Entity Framework to both get/set itself
 
@@ -108,7 +108,7 @@ public methods: we need the Entity Framework to both get/set itself
 
 "UserName": to separate from "Username" of ASP.NET CORE Identity
 
-### Basic Http status code
+## Basic Http status code
 
 * Ok(); 200
 * Created(); 201
@@ -118,7 +118,7 @@ public methods: we need the Entity Framework to both get/set itself
 * Forbid(); 403
 * NotFound(); 404
 
-### External tools/packages
+## External tools/packages
 
 * json-generator.com: generate users' information
 * randomuser.me: generate users' profile pictures
@@ -129,6 +129,6 @@ public methods: we need the Entity Framework to both get/set itself
 * NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
 * ng2-file-upload: 
 
-### Possible reasons causing bugs
+## Possible reasons causing bugs
 
 * When using ngModel, need to have property 'name'
