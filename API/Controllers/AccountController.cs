@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
-using System.Net;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
@@ -9,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using API.DTOs;
 using Microsoft.EntityFrameworkCore;
 using API.Interfaces;
-using System;
 using AutoMapper;
 
 namespace API.Controllers

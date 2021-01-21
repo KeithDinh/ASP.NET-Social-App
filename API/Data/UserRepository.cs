@@ -57,7 +57,7 @@ namespace API.Data
                 query
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
                 .AsNoTracking() // Reason: only read, there is no data processing
-                , userParams.PageNumber, userParams.PageSize);
+                ,userParams.PageNumber, userParams.PageSize);
                 
         }
 

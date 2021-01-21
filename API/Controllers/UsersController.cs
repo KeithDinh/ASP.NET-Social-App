@@ -27,6 +27,7 @@ namespace API.Controllers
             _userRepository = userRepository;
         }
         [HttpGet]
+        // [FromQuery]: tell API to retrieve the parameters from the query string (the part after ? in the api). Ex: /api?pageNumber=3&pageSize=5
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUserName());

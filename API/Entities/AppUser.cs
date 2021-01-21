@@ -20,7 +20,13 @@ namespace API.Entities
         public string Interests { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+
         public ICollection<Photo> Photos { get; set; }
+
+        public ICollection<UserLike> LikedByUsers { get; set; } // list of users who liked current logged in user
+        
+        public ICollection<UserLike> LikedUsers { get; set; } // list of users who ARE liked by current logged in user
+
 
         // Naming Convention: Get + "Name", AutoMapper will understand and map the result to "Age" in MemberDto
         // *WARNING: This function causes AutoMapper to query all info from AppUser => expose pw and pw hashed => not using it

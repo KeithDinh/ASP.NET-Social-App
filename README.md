@@ -94,6 +94,7 @@ dotnet ef database drop: drop current db
 
 ### CONFIGS 
 
+If production mode is false, app will use both appsettings and appsettings development by default
 File: appsettings.Development.json
 * "Microsoft": "Information" gives useful details on accessing the route
 
