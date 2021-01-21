@@ -1,18 +1,19 @@
 ## API
 
-### SOMETHINGS TO KEEP IN MIND
+### Notes
 
 * Entities: Model
 * Reset the server when adding new controllers
-* DTO: Data transfer object
-* If sending data in body, need to create a class acting as a model to parse it
+* If sending data in body as JSON, need to create a class (a model) to parse it (match properties of JSON to the class properties)
 * The Extension folder contains static classes that extends a specific class by adding static functions
 
-### GENERAL DEFINITIONS
+### General Concepts
 
 Naming convention: 
 * class members start with "_", Ex: _config
 * interface name starts with "I" as prefix, Ex: ITokenService.cs 
+
+* DTO: Data transfer object
 
 Entity Framework: Object Relational Mapper, translate code -> SQL that update db tables
 * Automate process "open connections->create dataset to fetch/submit data->convert dataset to .Net object"
@@ -41,7 +42,7 @@ Eager loading is the process whereby a query for one type of entity also loads r
 
 appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.
 
-### EXTENSIONS (API.csproj) 
+### Extensions (API.csproj) 
 
 Nuget VSCode extension: to find and install packages (for Visual Studio, it's already built-in)
 
@@ -53,18 +54,18 @@ dotnet-ef: can't install using Nuget Gallery, have to use cmd line:
     
 AutoMapper.Extensions.Microsoft.DependencyInjection: help to map from one object to another
 
-### DATA CONTEXT
+### Data Context
 
 DBContext class: act as a bridge between our code and db, It use the entities to map/create tables in database and return DBSets for backend to use
 
 If an entity need to have a db table but there is no API use of that entity (users can store photo, so there is a need to get photos of a specific user, but no need to get photo without user itself)
 
-### DATABASE 
+### Database 
 
 File: appsettings.Development.json
 * ```"ConnectionStrings": {"Default": "Data source=datingapp.db"}``` 
 
-### COMMANDS 
+### Commands 
 
 dotnet run: run the app
 
@@ -92,13 +93,14 @@ dotnet ef migrations remove: remove the last migration
 
 dotnet ef database drop: drop current db
 
-### CONFIGS 
+### Configs 
 
-If production mode is false, app will use both appsettings and appsettings development by default
+In dev mode, prod mode will be false and app will use both appsettings and appsettings development by default
+
 File: appsettings.Development.json
 * "Microsoft": "Information" gives useful details on accessing the route
 
-### MODELS/ENTITIES 
+### Models/Entities
 
 public methods: we need the Entity Framework to both get/set itself
 
@@ -106,7 +108,7 @@ public methods: we need the Entity Framework to both get/set itself
 
 "UserName": to separate from "Username" of ASP.NET CORE Identity
 
-### HTTP STATUS CODE
+### Basic Http status code
 
 * Ok(); 200
 * Created(); 201
@@ -116,7 +118,7 @@ public methods: we need the Entity Framework to both get/set itself
 * Forbid(); 403
 * NotFound(); 404
 
-### EXTERNAL TOOLS
+### External tools/packages
 
 * json-generator.com: generate users' information
 * randomuser.me: generate users' profile pictures
@@ -127,6 +129,6 @@ public methods: we need the Entity Framework to both get/set itself
 * NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
 * ng2-file-upload: 
 
-### POSIBLE BUGS
+### Possible reasons causing bugs
 
 * When using ngModel, need to have property 'name'
