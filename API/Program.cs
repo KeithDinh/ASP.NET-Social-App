@@ -30,6 +30,8 @@ namespace API
             try
             {
                 var context = services.GetRequiredService<DataContext>();
+
+                // This is basically typing "dotnet ef database update". Whenever we run "dotnet ef migrations add" and restart the app, the update will be executed automatically
                 await context.Database.MigrateAsync();
                 await Seed.SeedUsers(context);
             }
