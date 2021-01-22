@@ -12,10 +12,9 @@ namespace API.Data
     {
         public static async Task SeedUsers(DataContext context)
         {
-            // context.Users is a DbSet, if the DbSet already exists, db is not empty, then escape
+            // context.Users is a DbSet
             if(await context.Users.AnyAsync()) return;
-            
-            // if the db is empty, then seed the raw data
+
             var userData = await System.IO.File.ReadAllBytesAsync("Data/UserSeedData.json");
             var users = JsonSerializer.Deserialize<List<AppUser>>(userData);
             foreach(var user in users)

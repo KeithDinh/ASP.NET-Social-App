@@ -30,8 +30,6 @@ namespace API.Controllers
 
             // get current logged in user
             var sourceUserId = User.GetUserId();
-
-            // get current logged in user (sourceUserId) but plus the collection of people who are liked by this users
             var sourceUser = await _likesRepository.GetUserWithLikes(sourceUserId);
 
             if(likedUser == null) return NotFound();
@@ -39,15 +37,15 @@ namespace API.Controllers
             // prevent user from liking themself.
             if(sourceUser.UserName == username) return BadRequest("You cannot like yourself");
 
-            // check if the sourceUserId already liked the likedUser
             var userLike = await _likesRepository.GetUserLike(sourceUserId, likedUser.Id);
+
             if(userLike != null) return BadRequest("You already liked this user");
 
-            // create a like row/relationship, and add to table
             userLike = new UserLike{
                 SourceUserId = sourceUserId,
                 LikedUserId = likedUser.Id
             };
+
             sourceUser.LikedUsers.Add(userLike);
 
             if(await _userRepository.SaveAllAsync()) return Ok();
@@ -55,7 +53,7 @@ namespace API.Controllers
             return BadRequest("Failed to like user");
         }
 
-        // within current logged-in user, get users who liked or are liked by passing a predicate
+        // Get all users that are liked by current users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LikeDto>>> GetUserLikes([FromQuery]LikesParams likesParams)
         {

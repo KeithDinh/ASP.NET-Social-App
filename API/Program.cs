@@ -25,15 +25,11 @@ namespace API
         public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-
-            // Seeding data
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
             try
             {
                 var context = services.GetRequiredService<DataContext>();
-
-                // This is basically typing "dotnet ef database update". Whenever we run "dotnet ef migrations add" and restart the app, the update will be executed automatically
                 await context.Database.MigrateAsync();
                 await Seed.SeedUsers(context);
             }
@@ -43,7 +39,6 @@ namespace API
                 logger.LogError(ex, "An error occured during migration");
             }
 
-            // run
             await host.RunAsync();
         }
 
