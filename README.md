@@ -78,16 +78,21 @@ dotnet new webapi -o [name]: create a new API project, -o mean put them in a sep
 dotnet sln add API: add the pj to the solution
 
 dotnet dev-certs https --trust: tell browser to trust the certificates provided by dotnet sdk
+
 ### Debugs (VSCode)
 
 Mac: API.dll |||| Windows: API.exe
 
 ### Migrations
 
-dotnet ef migrations add <NAME> --output-dir <PATH>, 
+dotnet ef migrations add <NAME> --output-dir <PATH>: create cs codes to generate tables and constraints + snapshots
 Ex: dotnet ef migrations add InitialCreate -o Data/Migrations
 
-dotnet ef database update: create/update current db from last migration
+dotnet ef database update: make update effect to current db from last migration
+
+dotnet ef migrations list: list all migrations
+
+dotnet ef database update [Name of one of the migrations]: revert back to the specified migration (MUST delete the snapshot, and rerun migrations add to apply new change)
 
 dotnet ef migrations remove: remove the last migration
 
