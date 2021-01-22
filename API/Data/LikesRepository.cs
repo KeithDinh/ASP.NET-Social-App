@@ -54,6 +54,7 @@ namespace API.Data
             return await PagedList<LikeDto>.CreateAsync(likedUsers, likesParams.PageNumber, likesParams.PageSize);
         }
 
+        // get list of users that this {{userId}} has liked
         public async Task<AppUser> GetUserWithLikes(int userId)
         {
              return await _context.Users

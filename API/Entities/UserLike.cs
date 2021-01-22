@@ -1,5 +1,6 @@
 namespace API.Entities
 {
+    // SourceUserId and LikedUserId make up the primary key for this entity
     public class UserLike
     {
         public AppUser SourceUser { get; set; } // the user that likes other users
