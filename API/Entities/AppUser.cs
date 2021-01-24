@@ -30,7 +30,7 @@ namespace API.Entities
         public ICollection<Message> MessagesSent { get; set; }
 
         public ICollection<Message> MessagesReceived { get; set; }
-
+        
         // Naming Convention: Get + "Name", AutoMapper will understand and map the result to "Age" in MemberDto
         // *WARNING: This function causes AutoMapper to query all info from AppUser => expose pw and pw hashed => not using it
         // public int GetAge() {

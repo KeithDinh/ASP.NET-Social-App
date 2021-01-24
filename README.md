@@ -133,7 +133,12 @@ public methods: we need the Entity Framework to both get/set itself
 * ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
 * NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
 * ng2-file-upload: 
+* npm install @angular/cdk
+* ng add ngx-spinner
+* npm install ngx-timeago
 
 ## Possible reasons causing bugs
+
+* Find / FindAsync methods are defined for DbSet<T>, but the result of Include is IQueryable<T> => can't use Include with FindAsync
 
 * When using ngModel, need to have property 'name'

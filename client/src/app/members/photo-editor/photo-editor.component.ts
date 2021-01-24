@@ -54,7 +54,6 @@ export class PhotoEditorComponent implements OnInit {
     });
   }
   initializeUploader() {
-    console.log('Gate 1');
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/add-photo',
       authToken: 'Bearer ' + this.user.token,
