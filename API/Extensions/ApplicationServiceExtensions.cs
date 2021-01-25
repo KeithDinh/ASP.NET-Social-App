@@ -13,7 +13,8 @@ namespace API.Extensions
     {
         /*
             Instead of write all "Add" in the Startup.cs, we group them and factor out for better code flow
-         */
+            The function return IServiceCollection to overwrite/update the current 'services' variable
+        */
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
