@@ -5,6 +5,7 @@ Partial<Member[]> each element will be optional
 
 Route resolver: allow accessing to the data before the component is created
 
+Object.values return list of only values of an object (object is a combination of key:value)
 ## Commands
 
 * install + create: npm install -g @angular/cli, ng new [Name of project]
