@@ -42,17 +42,35 @@ Eager loading is the process whereby a query for one type of entity also loads r
 
 appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.
 
-## Extensions (API.csproj) 
+## Asp Net Core Identity
+
+IdentityUser<int>: Id, UserName, PasswordHash, PasswordSalt
+
+## Extensions/Packages (API.csproj) 
 
 Nuget VSCode extension: to find and install packages (for Visual Studio, it's already built-in)
 
-Microsoft.EntityFrameworkCore.Sqlite (tick on the API.csproj to install with the project)
+For Nuget Package (tick on the API.csproj to install with the project)
 
 dotnet-ef: can't install using Nuget Gallery, have to use cmd line: 
 * ```dotnet tool install --global dotnet-ef --version 5.0.1```
 * Requirements: Microsoft.EntityFrameworkCore.Design from Nuget Gallery
     
 AutoMapper.Extensions.Microsoft.DependencyInjection: help to map from one object to another
+
+Microsoft.AspNetCore.Authentication.JwtBearer
+
+Microsoft.AspNetCore.Authentication.OpenIdConnect
+
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+Microsoft.EntityFrameworkCore.Design  
+
+Microsoft.EntityFrameworkCore.Sqlite
+
+Swashbuckle.AspNetCore
+
+System.IdentityModel.Tokens.Jwt     
 
 ## Data Context
 

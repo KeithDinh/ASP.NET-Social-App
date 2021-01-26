@@ -26,6 +26,7 @@ namespace API.Controllers
             _mapper = mapper;
             _userRepository = userRepository;
         }
+        //[Authorize(Roles = "Admin, Moderator")]
         [HttpGet]
         // [FromQuery]: tell API to retrieve the parameters from the query string (the part after ? in the api). Ex: /api?pageNumber=3&pageSize=5
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
@@ -44,6 +45,7 @@ namespace API.Controllers
             // Idk why but GetUsersAsync returns a collection not ActionResult, so wrap it in Ok() to convert it to ActionResult
             return Ok(users);
         }
+
         // api/users/3 |||| Route Name is a shorthand way to reference the route
         [HttpGet("{username}", Name = "GetUser")]
         public async Task<ActionResult<MemberDto>> GetUsers(string username)
