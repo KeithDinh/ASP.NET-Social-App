@@ -40,7 +40,9 @@ export class UserManagementComponent implements OnInit {
     this.bsModalRef.content.updateSelectedRoles.subscribe((values) => {
       const rolesToUpdate = {
         roles: [
-          ...values.filter((el) => el.checked === true).map((el) => el.name),
+          ...values
+            .filter((role) => role.checked === true)
+            .map((role) => role.name),
         ],
       };
       if (rolesToUpdate) {
@@ -56,6 +58,8 @@ export class UserManagementComponent implements OnInit {
   private getRolesArray(user) {
     const roles = [];
     const userRoles = user.roles;
+
+    // values can be checked in the checkbox
     const availableRoles: any[] = [
       { name: 'Admin', value: 'Admin' },
       { name: 'Moderator', value: 'Moderator' },

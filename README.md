@@ -160,3 +160,5 @@ public methods: we need the Entity Framework to both get/set itself
 * Find / FindAsync methods are defined for DbSet<T>, but the result of Include is IQueryable<T> => can't use Include with FindAsync
 
 * When using ngModel, need to have property 'name'
+
+* EventEmitter is imported from '@angular/core' not 'events'

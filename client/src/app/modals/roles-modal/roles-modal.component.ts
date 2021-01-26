@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { User } from 'src/app/_models/user';
 
