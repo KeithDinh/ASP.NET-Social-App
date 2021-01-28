@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
+import { PresenceService } from './_services/presence.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,18 @@ export class AppComponent implements OnInit {
   title = 'Social App';
   users: any;
 
-  constructor(private AccountService: AccountService) {}
+  constructor(
+    private AccountService: AccountService,
+    private presence: PresenceService
+  ) {}
   ngOnInit() {
     this.setCurrentUser();
   }
   setCurrentUser() {
     const user: User = JSON.parse(localStorage.getItem('user'));
-    this.AccountService.setCurrentUser(user);
+    if (user) {
+      this.AccountService.setCurrentUser(user);
+      this.presence.createHubConnection(user);
+    }
   }
 }

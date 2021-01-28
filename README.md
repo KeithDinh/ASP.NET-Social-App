@@ -42,6 +42,12 @@ Eager loading is the process whereby a query for one type of entity also loads r
 
 appsettings.json: store private information (work as env). The app will use this file either in dev or prod mode.
 
+SingalR: library provides real-time functionality. It's Microsoft built-in
+
+JSON.parse: format the string that like JSON Ex: JSON.parse(localStorage.getItem('item'))
+
+JSON.stringify: turn a JSON into a json string
+
 ## Asp Net Core Identity
 
 IdentityUser<int>: Id, UserName, PasswordHash, PasswordSalt
@@ -154,6 +160,7 @@ public methods: we need the Entity Framework to both get/set itself
 * npm install @angular/cdk
 * ng add ngx-spinner
 * npm install ngx-timeago
+* npm install signalr
 
 ## Possible reasons causing bugs
 
