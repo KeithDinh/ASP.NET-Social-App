@@ -50,5 +50,6 @@ namespace API.SignalR
             }
             return Task.FromResult(onlineUsers);
         }
+        
     }
 }
