@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 import { NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { NgxGalleryImage } from '@kolkov/ngx-gallery';
 import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { MessageService } from 'src/app/_services/message.service';
 import { PresenceService } from 'src/app/_services/presence.service';
 import { AccountService } from 'src/app/_services/account.service';
 import { User } from 'src/app/_models/user';
+import { Message } from 'src/app/_models/message';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -32,12 +32,15 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private messageService: MessageService,
     public presense: PresenceService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {
     // get access to current user
     this.accountService.currentUser$
       .pipe(take(1))
       .subscribe((user) => (this.user = user));
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
@@ -60,6 +63,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
 
     this.galleryImages = this.getImages();
   }
+
   getImages(): NgxGalleryImage[] {
     const imageUrls = [];
     for (const photo of this.member.photos) {
@@ -83,6 +87,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;
   }
+
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
     if (this.activeTab.heading == 'Messages' && this.messages.length === 0) {

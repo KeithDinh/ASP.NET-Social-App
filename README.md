@@ -52,7 +52,7 @@ UTC Time: has Z at the end. Ex: 2020-11-11T11:38:20:32425Z
 
 ## Asp Net Core Identity
 
-IdentityUser<int>: Id, UserName, PasswordHash, PasswordSalt
+IdentityUser<int>: Id, UserName, PasswordHash, PasswordSalt: these are built-in
 
 ## Extensions/Packages (API.csproj) 
 
@@ -82,9 +82,9 @@ System.IdentityModel.Tokens.Jwt
 
 ## Data Context
 
-DBContext class: act as a bridge between our code and db, It use the entities to map/create tables in database and return DBSets for backend to use
+DBContext class: act as a bridge between our code and db, it syncs the entities with tables (either map or create) in database and return DBSets for backend to use
 
-If an entity need to have a db table but there is no API use of that entity (users can store photo, so there is a need to get photos of a specific user, but no need to get photo without user itself)
+```[Table("NameOfEntity")]```: If an entity need to have a db table but there is no API used of that entity (users can store photo, so there is a need to get photos of a specific user, but no need to get single photo from user itself)
 
 ## Database 
 
@@ -124,6 +124,21 @@ dotnet ef migrations remove: remove the last migration
 
 dotnet ef database drop: drop current db
 
+## External tools/packages
+
+* json-generator.com: generate users' information
+* randomuser.me: generate users' profile pictures
+* Jsontots.com: convert json object to typescript model
+* Cloudinary: mananging photos
+<br />
+* ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
+* NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
+* ng2-file-upload: 
+* npm install @angular/cdk
+* ng add ngx-spinner
+* npm install ngx-timeago
+* npm install signalr
+
 ## Configs 
 
 In dev mode, prod mode will be false and app will use both appsettings and appsettings development by default
@@ -148,21 +163,6 @@ public methods: we need the Entity Framework to both get/set itself
 * Unauthorized(); 401
 * Forbid(); 403
 * NotFound(); 404
-
-## External tools/packages
-
-* json-generator.com: generate users' information
-* randomuser.me: generate users' profile pictures
-* Jsontots.com: convert json object to typescript model
-* Cloudinary: mananging photos
-
-* ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
-* NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
-* ng2-file-upload: 
-* npm install @angular/cdk
-* ng add ngx-spinner
-* npm install ngx-timeago
-* npm install signalr
 
 ## Possible reasons causing bugs
 
