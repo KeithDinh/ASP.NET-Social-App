@@ -87,7 +87,11 @@ namespace API.SignalR
                 if(connections != null)
                 {
                     await _presenceHub.Clients.Clients(connections)
-                        .SendAsync("NewMessageReceived", new {username = sender.UserName, knownAs = sender.KnownAs});
+                        .SendAsync("NewMessageReceived", new {
+                                username = sender.UserName, 
+                                knownAs = sender.KnownAs
+                            }
+                        );
                 }
             }
 
@@ -95,8 +99,6 @@ namespace API.SignalR
 
             if (await _messageRepository.SaveAllAsync())
             {
-
-
                 // send new message from hub to client
                 await Clients.Group(groupName).SendAsync("NewMessage", _mapper.Map<MessageDto>(message));
             }
@@ -115,15 +117,18 @@ namespace API.SignalR
 
             group.Connections.Add(connection);
 
-            if (await _messageRepository.SaveAllAsync())
-                return group;
+            if (await _messageRepository.SaveAllAsync()) return group;
+
             throw new HubException("Failed to join group");
         }
         private async Task<Group> RemoveFromMessageGroup()
         {
             var group = await _messageRepository.GetGroupForConnection(Context.ConnectionId);
+
             var connection = group.Connections.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);
+
             _messageRepository.RemoveConnection(connection);
+
             if(await _messageRepository.SaveAllAsync()) return group;
 
             throw new HubException("Failed to remove from group");

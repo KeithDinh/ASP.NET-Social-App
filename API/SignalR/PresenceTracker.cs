@@ -27,7 +27,7 @@ namespace API.SignalR
             }
             return Task.FromResult(isOnline);
         }
-        public Task<Boolean> UserDisconnected(string username, string connectionId)
+        public Task<bool> UserDisconnected(string username, string connectionId)
         {
             bool isOffline = false;
 
