@@ -50,6 +50,8 @@ JSON.stringify: turn a JSON into a json string
 
 UTC Time: has Z at the end. Ex: 2020-11-11T11:38:20:32425Z
 
+```[JsonIgnore]```: Declared on top of a Entity property. Used for processing data, but clients won't see it
+
 ## Asp Net Core Identity
 
 IdentityUser<int>: Id, UserName, PasswordHash, PasswordSalt: these are built-in
