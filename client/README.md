@@ -1,11 +1,13 @@
 ## Client
 
 ### General Definitions
+
 Partial<Member[]> each element will be optional
 
 Route resolver: allow accessing to the data before the component is created
 
 Object.values return list of only values of an object (object is a combination of key:value)
+
 ## Commands
 
 * install + create: npm install -g @angular/cli, ng new [Name of project]
@@ -17,6 +19,7 @@ Object.values return list of only values of an object (object is a combination o
 * Running unit tests: `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 * Running end-to-end tests: `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 * Further help: `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Compiles an Angular app into an output directory: `ng build`, use `ng build --prod` for optimizations
 
 ### Route 
 

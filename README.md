@@ -82,6 +82,8 @@ Swashbuckle.AspNetCore
 
 System.IdentityModel.Tokens.Jwt     
 
+Npgsql.EntityFrameworkCore.PostgreSQL: 5.0.1
+
 ## Data Context
 
 DBContext class: act as a bridge between our code and db, it syncs the entities with tables (either map or create) in database and return DBSets for backend to use
@@ -91,8 +93,8 @@ DBContext class: act as a bridge between our code and db, it syncs the entities 
 ## Database 
 
 File: appsettings.Development.json
-* ```"ConnectionStrings": {"Default": "Data source=datingapp.db"}``` 
-
+* SQLITE: ```"ConnectionStrings": {"Default": "Data source=datingapp.db"}``` 
+* POSTGRES: ``` "ConnectionStrings": { "DefaultConnection": "Server=localhost; Port=5432; User Id=usr; Password=pw; Database=socialapp"},```
 ## Commands 
 
 dotnet run: run the app
@@ -141,6 +143,13 @@ dotnet ef database drop: drop current db
 * npm install ngx-timeago
 * npm install signalr
 
+### Docker Set
+
+Create a postgres image named "dev" and bind it to port 5432
+```docker run --name dev -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:latest```
+
+pgAdmin: pgadmin4-4.30-x64.exe (pw: honet)
+
 ## Configs 
 
 In dev mode, prod mode will be false and app will use both appsettings and appsettings development by default
@@ -179,3 +188,4 @@ public methods: we need the Entity Framework to both get/set itself
 * Message Broker: RabbitMQ
 
 * Unit Test: 
+

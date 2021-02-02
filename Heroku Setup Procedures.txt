@@ -1,0 +1,11 @@
+
+angular.json:
+// This is the default content folder Kastrel server uses for static files (js, img, css,...)
+    "build" -> "options" -> "outputPath": dist/client -> ../API/wwwroot
+
+Startup.cs
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+
+Create FallBackController class and add to UseEndpoints
+
