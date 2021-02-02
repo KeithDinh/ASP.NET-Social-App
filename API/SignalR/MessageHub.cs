@@ -42,7 +42,8 @@ namespace API.SignalR
 
             var messages = await _unitOfWork.MessageRepository
                 .GetMessageThread(Context.User.GetUserName(), otherUser);
-            
+            var hc = _unitOfWork.HasChanges();
+            await _unitOfWork.Complete();
             // If there're changes, save 
             if(_unitOfWork.HasChanges())
             {

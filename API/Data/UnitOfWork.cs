@@ -23,6 +23,8 @@ namespace API.Data
         public async Task<bool> Complete() => await _context.SaveChangesAsync() > 0;
 
         // ChangeTracker is a built-tin method of DbContext class
-        public bool HasChanges() => _context.ChangeTracker.HasChanges();
+        public bool HasChanges() {
+            return _context.ChangeTracker.HasChanges();
+        }
     }
 }
