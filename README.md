@@ -150,6 +150,21 @@ Create a postgres image named "dev" and bind it to port 5432
 
 pgAdmin: pgadmin4-4.30-x64.exe (pw: honet)
 
+### Heroku
+
+#### Steps: 
+* create heroku pj
+* install heroku CLI
+* setup new git repo on heroku
+* run buildpack command
+* add resources heroku addon: Heroku Postgres
+* heroku settings: Config Vars: add CloudinarySettings from appsettings.json
+* Add snippets to applicationServiceExtension
+* set production: ```heroku config:set ASPNETCORE_ENVIRONMENT=Production```
+
+heroku dotnet buildpack: https://elements.heroku.com/buildpacks/jincod/dotnetcore-buildpack
+
+
 ## Configs 
 
 In dev mode, prod mode will be false and app will use both appsettings and appsettings development by default
