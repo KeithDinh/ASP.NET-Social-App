@@ -134,6 +134,7 @@ dotnet ef database drop: drop current db
 * randomuser.me: generate users' profile pictures
 * Jsontots.com: convert json object to typescript model
 * Cloudinary: mananging photos
+* passwordsgenerator.net: set token key
 <br />
 * ngx-bootstrap: valor-software.com/ngx-bootstrap/#/tabs
 * NgxGallery: npmjs.com/package/@kolkov/ngx-gallery
@@ -156,11 +157,18 @@ pgAdmin: pgadmin4-4.30-x64.exe (pw: honet)
 * create heroku pj
 * install heroku CLI
 * setup new git repo on heroku
-* run buildpack command
-* add resources heroku addon: Heroku Postgres
+* ```heroku git:remote -a nameofpj```
+* run buildpack command ```heroku buildpacks:set gitRepo```
+* add resources in heroku addon: Heroku Postgres
 * heroku settings: Config Vars: add CloudinarySettings from appsettings.json
 * Add snippets to applicationServiceExtension
 * set production: ```heroku config:set ASPNETCORE_ENVIRONMENT=Production```
+* set token key: ```heroku config:set TokenKey=key```
+* ```git push heroku branchName```
+
+Debugs:
+```heroku stack```: list all stacks
+```heroku stack:set nameOfStack```: select stack
 
 heroku dotnet buildpack: https://elements.heroku.com/buildpacks/jincod/dotnetcore-buildpack
 
