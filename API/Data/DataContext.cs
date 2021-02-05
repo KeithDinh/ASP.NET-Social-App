@@ -67,6 +67,9 @@ namespace API.Data
                 .WithMany(m => m.MessagesSent)
                 .OnDelete(DeleteBehavior.Restrict); // delete the user won't delete the messages
 
+            // return only approved photo 
+            builder.Entity<Photo>().HasQueryFilter(p => p.isApproved);
+            
             builder.ApplyUtcDateTimeConverter();
         }
     }
