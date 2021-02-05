@@ -1,8 +1,9 @@
+using System.Runtime.Intrinsics.X86;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Entities
 {
-    [Table("Photos")]
+    // [Table("Photos")]
     public class Photo
     {
         public int Id { get; set; }
@@ -11,5 +12,6 @@ namespace API.Entities
         public string PublicId { get; set; }
         public AppUser AppUser { get; set; }
         public int AppUserId { get; set; }
+        public bool isApproved { get; set; }
     }
 }
