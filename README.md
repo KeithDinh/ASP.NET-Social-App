@@ -156,8 +156,7 @@ pgAdmin: pgadmin4-4.30-x64.exe (pw: honet)
 #### Steps: 
 * create heroku pj
 * install heroku CLI
-* setup new git repo on heroku
-* ```heroku git:remote -a nameofpj```
+* setup new git repo on heroku ```heroku git:remote -a nameOfpj```
 * run buildpack command ```heroku buildpacks:set gitRepo```
 * add resources in heroku addon: Heroku Postgres
 * heroku settings: Config Vars: add CloudinarySettings from appsettings.json
