@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -34,6 +35,8 @@ namespace API.Data
 
             foreach(var user in users)
             {
+                // this is seeding, so set users' 1st photo to approved
+                user.Photos.First().isApproved = true;
                 // convert username of each user to lower case
                 user.UserName = user.UserName.ToLower();
                 // create new entry in the table/collection

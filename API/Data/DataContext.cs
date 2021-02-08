@@ -21,6 +21,7 @@ namespace API.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Connection> Connections { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Photo> Photos {get; set;}
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -66,6 +67,9 @@ namespace API.Data
                 .WithMany(m => m.MessagesSent)
                 .OnDelete(DeleteBehavior.Restrict); // delete the user won't delete the messages
 
+            // return only approved photo 
+            builder.Entity<Photo>().HasQueryFilter(p => p.isApproved);
+            
             builder.ApplyUtcDateTimeConverter();
         }
     }
