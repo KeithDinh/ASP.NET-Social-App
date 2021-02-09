@@ -206,6 +206,8 @@ public methods: we need the Entity Framework to both get/set itself
 
 * EventEmitter is imported from '@angular/core' not 'events'
 
+* ng build --prod != ng build
+
 ## Possible Features
 
 * Message Broker: RabbitMQ
