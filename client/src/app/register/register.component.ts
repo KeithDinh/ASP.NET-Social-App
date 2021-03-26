@@ -66,6 +66,7 @@ export class RegisterComponent implements OnInit {
       },
       (error) => {
         this.validationErrors = error;
+        this.toastr.error(error);
       }
     );
   }
